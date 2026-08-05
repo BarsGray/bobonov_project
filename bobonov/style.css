@@ -1904,7 +1904,22 @@ textarea.input-text
 .submit_box .btn-lilac {padding: 10px 76px;}
 .map_on_contacts {padding-bottom: 100px;}
 .map_on_contacts iframe {height: 600px;}
-
+.s_specialist_inner {width: 770px;margin: 0 auto;}
+.s_specialist .level {
+	font-family: prata;
+	font-size: 20px;
+}
+.s_specialist .stazh {margin-bottom: 40px;}
+.s_specialist .spec-info p.lilac:not(.h3) {margin-top: 0;margin-bottom: 10px;}
+.s_specialist .specializations {font-family: prata;font-size: 20px;line-height: 1.4;}
+.s_specialist .spec-info p.lilac.specializations:not(.h3) {margin-bottom: 40px;}
+.s_specialist_inner .spec-info p:not(.h3,.h1) {line-height: 1.8;font-size: 16px; }
+.s_specialist ul {display: flex;flex-direction: column;gap: 20px;}
+.s_specialist li {font-size: 16px; line-height: 1.8;}
+.s_specialist .b-accordion {margin-top: 20px;}
+.s_specialist .title-certificats {padding-top: 80px;}
+.s_specialist .certificats .slick-slide {height: 345px;}
+/* .s_specialist .certificats {height: 330px;} */
 
 @media (hover: hover) {
 	.price_link:hover {background-color: #fff;}

@@ -1891,44 +1891,182 @@ textarea.input-text
 	margin-bottom: 40px;
 	border-bottom: 1px solid #E1E1E1;
 }
-.form_box form {
-	padding: 0 60px;
-}
-.form_box .input-text {
-	margin-bottom: 30px;
-}
-.form_box .form-flex {
-	gap: 40px;
-}
+.form_box form {padding: 0 60px;}
+.form_box .input-text {margin-bottom: 30px;}
+.form_box .form-flex {gap: 40px;}
 .submit_box {display: flex;gap: 16px;flex-direction: row-reverse;align-items: center;}
 .submit_box .btn-lilac {padding: 10px 76px;}
 .map_on_contacts {padding-bottom: 100px;}
 .map_on_contacts iframe {height: 600px;}
-.s_specialist_inner {width: 770px;margin: 0 auto;}
+.s_specialist_inner {max-width: 770px;margin: 0 auto;}
 .s_specialist .level {
 	font-family: prata;
 	font-size: 20px;
 }
-.s_specialist .stazh {margin-bottom: 40px;}
-.s_specialist .spec-info p.lilac:not(.h3) {margin-top: 0;margin-bottom: 10px;}
-.s_specialist .specializations {font-family: prata;font-size: 20px;line-height: 1.4;}
-.s_specialist .spec-info p.lilac.specializations:not(.h3) {margin-bottom: 40px;}
-.s_specialist_inner .spec-info p:not(.h3,.h1) {line-height: 1.8;font-size: 16px; }
-.s_specialist ul {display: flex;flex-direction: column;gap: 20px;}
-.s_specialist li {font-size: 16px; line-height: 1.8;}
+.s-specialists_page .stazh,.s_specialist .stazh {margin-bottom: 40px;}
+.s-specialists_page .spec-info p.lilac:not(.h3),.s_specialist .spec-info p.lilac:not(.h3) {margin-top: 0;margin-bottom: 10px;}
+.s-specialists_page .specializations,.s_specialist .specializations {font-family: prata;font-size: 20px;line-height: 1.4;}
+.s-specialists_page .spec-info p.lilac.specializations:not(.h3),.s_specialist .spec-info p.lilac.specializations:not(.h3) {margin-bottom: 40px;}
+.specialists_box .spec-info p:not(.h3,.h1,.specializations),.s_specialist_inner .spec-info p:not(.h3,.h1,.specializations) {line-height: 1.8;font-size: 16px; }
+.s_specialist_inner .spec-info p.level {font-size: 20px;}
+.s_specialist_inner ul {display: flex;flex-direction: column;gap: 20px;}
+.s_specialist_inner li {font-size: 16px; line-height: 1.8;position: relative;}
+.s_specialist_inner li {list-style-type: none;}
+.s_specialist_inner li::before {
+	content: '';
+	position: absolute;
+	background-color: #3A3A3A;
+	width: 4px;
+	height: 4px;
+	border-radius: 50%;
+	top: 12px;
+	left: -14px;
+}
+.specialist_foto img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
 .s_specialist .b-accordion {margin-top: 20px;}
 .s_specialist .title-certificats {padding-top: 80px;}
 .s_specialist .certificats .slick-slide {height: 345px;}
-/* .s_specialist .certificats {height: 330px;} */
+.s_specialist {margin-top: 60px;margin-bottom: 200px;}
+.specialist + .specialist {padding-top: 160px;}
 
+.s_specialist .specialist_foto {margin-bottom: 40px;}
+.specialists_box {
+	display: flex;
+	gap: 40px;
+}
+.specialists_box .b-specialist {
+	margin-top: 60px;
+}
+.specialists_box .b-specialist {
+	display: flex;
+	flex-direction: column;
+}
+.specialists_box .btn-lilac {
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+	font-weight: 500;
+	letter-spacing: 1px;
+	margin-bottom: 40px;
+}
+.specialists_box .name {
+	font-size: 50px;
+	margin-bottom: 10px;
+}
+.specialists_box .level {
+	font-family: prata;
+	font-size: 20px;
+	color: #562A6F;
+	margin-bottom: 10px;
+}
+.specialists_box .stazh {
+	margin-bottom: 40px;
+}
+.s-specialists_page .spec-decor>div {
+	box-shadow: 0 500px 50px 70px #fff,0 0 50px #F2E9F8;
+}
+.s-specialists_page .specialist_foto {
+	margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+	margin-bottom: 40px;
+	width: 100%;
+}
+.s-specialists_page .specialist_foto img {object-position: top;}
+.s-specialists_page {padding-top: 125px;}
+.benefits_section {margin: 140px 0;}
+.benefits_inner {max-width: 1040px;margin: 0 auto;}
+.benefits_title {
+	color: #3A3A3A;
+	font-family: prata;
+	font-size: 50px;
+	text-align: center;
+	margin-bottom: 80px;
+	line-height: 1.4;
+}
+.benefits_list p {
+	color: #562A6F;
+	font-family: prata;
+	font-size: 20px;
+}
+.benefits_list {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 40px;
+	list-style-type: none;
+}
+.benefits_list li {
+	padding-left: 42px;
+	position: relative;
+	line-height: 1.4;
+}
+.benefits_list li::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background: url('img/nd_img/checkmark\(1\).svg') center center / contain no-repeat #F2EFF8;
+}
+.handbook_section {margin: 100px 0 140px;}
+.handbook_title {
+	font-family: prata;
+	font-size: 50px;
+	line-height: 1.4;
+	max-width: 1040px;
+	color: #3A3A3A;
+	text-align: center;
+	margin: 0 auto 40px;
+}
+.handbook_box {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 40px;
+}
+.handbook_elem {
+	background-color: #F2EFF8;
+	padding: 60px;
+}
+.handbook_elem_title {
+	font-family: prata;
+	font-size: 24px;
+	color: #562A6F;
+	margin-bottom: 18px;
+}
+.handbook_elem_list li + li {
+	margin-top: 18px;
+}
+.handbook_elem_list {
+	padding-left: 24px;
+	list-style-type: none;
+}
+.handbook_elem_list li {position: relative;}
+.handbook_elem_list li::before {
+  content: '';
+  position: absolute;
+  background-color: #3A3A3A;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  top: 10px;
+  left: -14px;
+}
+/* .handbook_inner {max-width: 1580px;margin: 0 auto;} */
 @media (hover: hover) {
 	.price_link:hover {background-color: #fff;}
 	.left_box_bottom .social svg:hover {fill: #3A3A3A;}
 	.left_box_bottom .contacts-info a:hover {color: #3A3A3A;}
 }
-
 @media (max-width: 1300px) {
 	.b-about .text-about {max-width: 800px;}
+	.s_specialist .certificats .slick-slide {height: auto;}
 }
 @media (max-width: 1200px) {
 	.s-reviews_page {margin-bottom: 120px;}
@@ -1941,6 +2079,21 @@ textarea.input-text
 	.contacts_title,.form_box .h2 {font-size: 40px;}
 	.submit_box .btn-lilac {padding: 10px 36px;}
 	.contacts_left_box {height: 446px;}
+	.specialists_box .name {font-size: 30px;}
+	.specialists_box .btn-lilac {max-width: 174px;}
+	.specialists_box {gap: 20px;}
+	.benefits_inner {max-width: 788px;}
+	.benefits_title {font-size: 40px;margin-bottom: 40px;text-align: start;}
+	.benefits_list {grid-template-columns: 1fr;gap: 20px;}
+	.benefits_section {margin: 120px 0;}
+	.handbook_title {font-size: 40px;margin-bottom: 30px;max-width: 788px;}
+	.handbook_box {
+		max-width: 788px;
+		margin: 0 auto;
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+	.handbook_section {margin: 80px 0 120px;}
 }
 @media (max-width: 992px) {
 	.oter_top {
@@ -1960,23 +2113,43 @@ textarea.input-text
 	}
 	.contacts_left_box {gap: 40px;}
 	.contacts_page .container {gap: 60px;}
-	.map_on_contacts iframe {
-		height: 400px;
+	.map_on_contacts iframe {height: 400px;}
+	.contacts_page {margin: 60px 0;}
+	.map_on_contacts {padding-bottom: 60px;}
+	.s-specialists_page .spec-decor>div {
+		box-shadow: 0 230px 100px 150px #fff,0 0 50px #F2E9F8;
+		width: 100%;
+		height: 20%;
 	}
-	.contacts_page {
-		margin: 60px 0;
-	}
-	.map_on_contacts {
-  	padding-bottom: 60px;
-	}
+	.s-specialists_page {padding-top: 75px;}
 }
 @media (max-width: 767px) {
 	.s-about_page {margin-bottom: 60px;}
 	.s-reviews_page {margin-bottom: 60px;margin-top: 40px;}
+	.specialists_box {flex-direction: column;}
+	.specialists_box .b-specialist {margin-top: 40px;}
+	.s-specialists_page .specialist_foto {margin-bottom: 34px;}
+	.specialists_box .name {margin-bottom: 13px;}
+	.specialists_box .level {margin-bottom: 13px;}
+	.specialists_box .stazh {margin-bottom: 34px;}
+	.specialists_box .btn-lilac {margin-bottom: 34px;}
+	.s-specialists_page .spec-info p.lilac.specializations:not(.h3) {margin-bottom: 34px;}
+	.s-specialists_page .spec-decor>div {box-shadow: 0 230px 50px 150px #fff,0 0 50px #F2E9F8;}
+	.s-specialists_page .spec-decor>div {height: 8%;}
+	.benefits_title {font-size: 26px;}
+	.benefits_section {margin: 100px 0;}
+	.handbook_title {font-size: 26px;}
+	.handbook_elem {padding: 40px;}
+	.handbook_elem_title{font-size: 20px;}
+	.handbook_elem_list li {font-size: 14px;}
+	.handbook_section {margin: 60px 0 100px;}
 }
 @media (max-width: 640px) {
 	.form_box form {padding: 10px;}
 	.form_box .form-flex{gap: 20px;}
+	.specialist + .specialist {padding-top: 80px;}
+	.s_specialist {margin-bottom: 120px;}
+	.s_specialist .certificats .slick-slide {max-height: 518px;}
 }
 @media (max-width: 480px) {
 	.oter_top {
@@ -1995,4 +2168,15 @@ textarea.input-text
 	.contacts_page {margin: 50px 0;}
 	.form_box .h2 {padding-bottom: 30px;margin-bottom: 20px;}
 	.map_on_contacts iframe {height: 350px;}
+	.specialist + .specialist {padding-top: 60px;}
+	.s_specialist{margin-bottom: 100px;}
+	.specialists_box .name {line-height: 1.5;}
+	.s-specialists_page .specialist_foto {margin-bottom: 20px;}
+	.specialists_box .stazh {margin-bottom: 20px;}
+	.specialists_box .btn-lilac {margin-bottom: 20px;}
+	.s-specialists_page .spec-info p.lilac.specializations:not(.h3) {margin-bottom: 20px;}
+	.s-specialists_page .spec-decor>div {height: 5%;}
+	.s-specialists_page .spec-decor>div {box-shadow: 0 170px 50px 110px #fff,0 0 50px #F2E9F8;}
+	.handbook_title {margin-bottom: 20px;}
+	.handbook_elem {padding: 20px;}
 }

@@ -1,60 +1,56 @@
-$(document).ready(function($){	
+jQuery(document).ready(function($){	
 	// аккордеон
 	$(".b-accordion .h3, .b-accordion .h2").click(function(){
-		if($(this).hasClass("active"))
-		{
+		if($(this).hasClass("active")) {
 			$(this).removeClass("active");
 			$(this).next(".acc-text").slideUp();
 		}
-		else
-		{
+		else {
 			$(this).addClass("active");
 			$(this).next(".acc-text").slideDown();
 		}
 	});
 	// сертификаты
 	$('.certificats').slick({
-        dots: false,
-        infinite: true,
-        speed: 300,
+		dots: false,
+		infinite: true,
+		speed: 300,
 		arrows: true,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        responsive: [
-            {
-                breakpoint: 1023,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                }
-            },
-            {
-                breakpoint: 767,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1
-                }
-            },
-            {
-                breakpoint: 640,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
+		slidesToShow: 4,
+		slidesToScroll: 1,
+		responsive: [
+			{
+				breakpoint: 1023,
+				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 1,
+				}
+			},
+			{
+				breakpoint: 767,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 1
+				}
+			},
+			{
+				breakpoint: 640,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
 					arrows: false,
 					dots: true,
-                }
-            }
-        ]
-    });
+				}
+			}
+		]
+	});
 	// мобильное меню
 	$(".b-toggle").click(function(){
-		if($(this).hasClass("active"))
-		{
+		if($(this).hasClass("active")) {
 			$(this).removeClass("active");
 			$(".main-menu").fadeOut();
 		}
-		else
-		{
+		else {
 			$(this).addClass("active");
 			$(".main-menu").fadeIn();
 		}

@@ -1769,7 +1769,7 @@ textarea.input-text
 .bread {text-align: center;font-size: 20px;}
 .oter_top {padding-bottom: 140px;padding-top: 227px; color: #fff;}
 .divider {margin: 0 20px;}
-.s-about_page {margin-bottom: 200px;}
+.s-about_page {margin: 60px 0 60px;padding: 0;}
 .s-about_page .b-about {justify-content: center;}
 .s-about .container .h1,.b-about .text-about {max-width: 770px;width: 100%;}
 .s-reviews_page {margin: 60px 0 200px;}
@@ -2043,8 +2043,26 @@ textarea.input-text
   top: 10px;
   left: -14px;
 }
+.content_container {max-width: 790px;margin: 60px auto; padding: 0 10px;}
+.content_container a {color: #562A6F;transition: color .2s ease-in-out; font-family: prata;}
+.content_container a:active {color: #3A3A3A;}
+.content_container h1,
+.content_container h2,
+.content_container h3,
+.content_container h4,
+.content_container h5,
+.content_container h6 {margin-bottom: 30px;text-align: center;}
+.content_container p {margin-bottom: 30px;}
+.content_container ul,
+.content_container ol {padding-left: 25px; margin-bottom: 30px;}
+.content_container ul li,
+.content_container ol li {margin-bottom: 20px;}
+
+
+.s-contacts {margin-top: 95px;}
 /* .handbook_inner {max-width: 1580px;margin: 0 auto;} */
 @media (hover: hover) {
+	.content_container a:hover {color: #3A3A3A;}
 	.price_link:hover {background-color: #fff;}
 	.left_box_bottom .social svg:hover {fill: #3A3A3A;}
 	.left_box_bottom .contacts-info a:hover {color: #3A3A3A;}

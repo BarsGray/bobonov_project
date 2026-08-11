@@ -98,19 +98,15 @@ function show_about() { ?>
 			</div>
 			<div class="b-about">
 				<div class="text-about">
-					<p class="lilac">
-						Психологический центр Бобоновых - это место, где вы сможете получить квалифицированную консультацию психолога. Прием ведут специалисты с многолетним опытом. Психологи центра работают с различными проблемами и оказывают психотерапевтическую помощь в кризисных ситуациях. Доверьтесь профессионалам психологического центра Бобоновых и получите поддержку, в которых вы нуждаетесь!
-					</p>
-					<p>
-						Кабинет психолога - это безопасное пространство, где вы сможете обсудить проблемы, которые вас беспокоят. Специалист с пониманием отнесется к вашим запросам и поможет найти решение. К психологам могут обратиться люди с различными проблемами, затрагивающими все сферы жизни человека. Психологический центр Бобоновых гарантирует конфиденциальность встреч.
-					</p>
+					<p class="lilac"><?php the_field('o_centre_top', 39); ?></p>
+					<p><?php the_field('o_centre_bottom', 39); ?></p>
 				</div>
 			</div>
 		</div>
 	</div>
 <?php }
 
-function show_contacts_block() { ?>
+function show_contacts_page() { ?>
   	<div class="contacts_page">
 		<div class="container">
 			<div class="contacts_left_box">
@@ -156,112 +152,76 @@ function show_contacts_block() { ?>
 	</div>
 <?php }
 function show_spetsialisty() { ?>
-  <div class="s_specialist">
+  <div class="s_specialist s-specialists_page">
 		<div class="container">
-			<div class="specialist">
-				<div class="s_specialist_inner">
-					<div class="specialist_foto"><img src="<?php echo TEMPLATE_URL ?>/img/nd_img/alexander-lunyov-H3xUEcK8F5A-unsplash.jpg" alt="Бобонов Андрей Михайлович"></div>
-					<div class="spec-info">
-						<p class="lilac h1 text-center name">Бобонов Андрей Михайлович</p>
-						<p class="text-center lilac level">Психотерапевт, клинический психолог</p>
-						<p class="text-center stazh">Стаж: 28 лет</p>
-						<p class="lilac specializations">Работает с: депрессия, тревожное расстройство,  панические атаки, тревожно-депрессивное расстройство, расстройство стрессовое посттравматическое, расстройство обсессивно-компульсивное, социофобия</p>
-						<p>Мой стаж работы 28 лет. В своей работе я стараюсь придерживаться строгих принципов. Работаю с проблемами в семейной жизни, карьере и личной жизни. Помогу вам установить четкие границы, которые будут способствовать улучшению качества жизни. Вместе мы сможем прийти к решению проблем в семье или с партнером. Я могу помочь вам определить ваши сильные стороны и повысить самооценку.</p>
-						<div class="b-accordion">
-							<div>
-								<p class="h3 lilac">Образование</p>
-								<div class="acc-text" style="display: none;">
-									<ul>
-										<li>2002 г. Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (психотерапия). Циклы переподготовки</li>
-										<li>2001 г. Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (психиатрия-наркология). Циклы переподготовки</li>
-										<li>2000 г. Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (психиатрия). Циклы переподготовки</li>
-										<li>1999 г. Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (анестезиология-реаниматология). Циклы переподготовки</li>
-										<li>1997 г. Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (терапия). Интернатура</li>
-										<li>1996 г. Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (лечебное дело). Базовое образование</li>
-									</ul>
-								</div>
-							</div>
-							<div>
-								<p class="h3 lilac">Трудовая деятельность</p>
-								<div class="acc-text" style="display: none;">
-									<ul>
-										<li>2023 — н. в. «Центр Современной Педиатрии». Врач-психиатр, психотерапевт</li>
-										<li>2021 — 2023. клиника «На Театральной». Врач-психотерапевт, врач-психиатр</li>
-										<li>2021 — 2023. ООО «Скорая помощь 072». Заместитель главного врача, психиатр, психотерапевт</li>
-										<li>2020 — н. в. Санкт-Петербург, Научно-Клинический Центр «Карповка». Главный врач, психиатр, психотерапевт, психиатр-нарколог</li>
-										<li>2010 — 2017. ООО «Альтернатива +», Южно-Моравская, 29а. Врач психиатр, психотерапевт, психиатр - нарколог</li>
-										<li>2001 — 2017. Медико-психотерапевтический центр, Московский проспект, 6. Врач психотерапевт, психиатр - нарколог</li>
-										<li>1997 — 2007. БУЗ ВО «ГКБСМП №1», Проспект Патриотов, 23. Врач психиатр - нарколог, врач анестезиолог-реаниматолог ПИТ</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="text-center title-certificats"><p>Дипломы и сертификаты <span class="lilac">Бобонова Андрея Михайловича</span></p></div>
-				<div class="certificats">
-					<a href="<?php echo TEMPLATE_URL ?>/img/cert1.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert1.jpg" alt="certificat"></a>
-					<a href="<?php echo TEMPLATE_URL ?>/img/cert2.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert2.jpg" alt="certificat"></a>
-					<a href="<?php echo TEMPLATE_URL ?>/img/cert3.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert3.jpg" alt="certificat"></a>
-					<a href="<?php echo TEMPLATE_URL ?>/img/cert4.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert4.jpg" alt="certificat"></a>
-					<a href="<?php echo TEMPLATE_URL ?>/img/cert5.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert5.jpg" alt="certificat"></a>
-					<a href="<?php echo TEMPLATE_URL ?>/img/cert6.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert6.jpg" alt="certificat"></a>
-					<a href="<?php echo TEMPLATE_URL ?>/img/cert7.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert7.jpg" alt="certificat"></a>
-					<a href="<?php echo TEMPLATE_URL ?>/img/cert8.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert8.jpg" alt="certificat"></a>
-					<a href="<?php echo TEMPLATE_URL ?>/img/cert9.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert9.jpg" alt="certificat"></a>
-					<a href="<?php echo TEMPLATE_URL ?>/img/cert10.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert10.jpg" alt="certificat"></a>
-					<a href="<?php echo TEMPLATE_URL ?>/img/cert11.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert11.jpg" alt="certificat"></a>
-					<a href="<?php echo TEMPLATE_URL ?>/img/cert12.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert12.jpg" alt="certificat"></a>
-				</div>
-			</div>
-
-
-
-			<div class="specialist">
-				<div class="s_specialist_inner">
-					<div class="specialist_foto"><img src="<?php echo TEMPLATE_URL ?>/img/nd_img/alexander-lunyov-H3xUEcK8F5A-unsplash(1).jpg" alt="Бобонова Елена Николаевна"></div>
-					<div class="spec-info">
-						<p class="lilac h1 text-center name">Бобонова Елена Николаевна</p>
-						<p class="text-center lilac level">Психотерапевт</p>
-						<p class="text-center stazh">Стаж: 24 лет</p>
-						<p class="lilac specializations">Работает с: депрессия, тревожное расстройство,  панические атаки, тревожно-депрессивное расстройство, расстройство стрессовое посттравматическое, расстройство обсессивно-компульсивное, социофобия</p>
-						<p>Мой стаж работы 24 года. В своей работе я стараюсь придерживаться строгих принципов. Работаю с проблемами в семейной жизни, карьере и личной жизни. Помогу вам установить четкие границы, которые будут способствовать улучшению качества жизни. Вместе мы сможем прийти к решению проблем в семье или с партнером. Я могу помочь вам определить ваши сильные стороны и повысить самооценку.</p>
-						<div class="b-accordion">
-							<div>
-								<p class="h3 lilac">Образование</p>
-								<div class="acc-text" style="display: none;">
-									<ul>
-										<li>2020 г. Центр специализированного образования "Проф-Ресурс" (Психология). Базовое образование</li>
-										<li>2019 г. Центр специализированного образования "Проф-Ресурс" (Психотерапия). Циклы переподготовки</li>
-										<li>2019 г. Центр специализированного образования "Проф-Ресурс" (Психиатрия). Циклы переподготовки</li>
-										<li>2010 г. Воронежский государственный университет (МВА). Базовое образование</li>
-										<li>2001 г. Воронежская государственная медицинская академия им. Н.Н. Бурденко (психиатрия-наркология). Интернатура</li>
-										<li>2000 г. Воронежская государственная медицинская академия им. Н.Н. Бурденко (лечебное дело). Базовое образование</li>
-									</ul>
-								</div>
-							</div>
-							<div>
-								<p class="h3 lilac">Трудовая деятельность</p>
-								<div class="acc-text" style="display: none;">
-									<ul>
-										<li>2023 — н. в. Центр Современной Педиатрии. Врач-психотерапевт, врач-психиатр</li>
-										<li>2021 — 2023. Клиника «На Театральной». Врач-психотерапевт</li>
-										<li>2018 — 2022. ВГУ. Преподаватель психологии</li>
-										<li>2008 — 2021. Частная практика. Фриланс</li>
-										<li>2004 — 2007. Больница скорой медицинской помощи N1. Врач-психиатр-нарколог</li>
-										<li>2000 — 2004. Воронежский областной наркологический диспансер. Врач-психиатр-нарколог</li>
-									</ul>
+			<?php 
+			$query = new WP_Query(['post_type' => 'specials','posts_per_page' => -1,]);
+			if ($query->have_posts()): ?>
+				<?php while ($query->have_posts()): $query->the_post(); ?>
+					<div class="specialist">
+						<div class="s_specialist_inner">
+							<div class="specialist_foto"><?the_post_thumbnail();?></div>
+							<div class="spec-info">
+								<p class="lilac h1 text-center name"><?php the_title(); ?></p>
+								<p class="text-center lilac level"><?php the_field('specializaciya'); ?></p>
+								<p class="text-center stazh">Стаж: <?php the_field('stazh'); ?></p>
+								<p class="lilac specializations">Работает с: <?php the_field('work_with'); ?></p>
+								<p><?php the_content(); ?></p>
+								<div class="b-accordion">
+									<div>
+										<p class="h3 lilac">Образование</p>
+										<div class="acc-text" style="display: none;">
+											<ul>
+												<?php if (!empty(get_field('obrazovanie')) && is_array(get_field('obrazovanie'))):?>
+													<?php foreach (get_field('obrazovanie') as $item):?>
+														<li><?php echo $item['period']; ?></li>
+													<?php endforeach;?>
+												<?php endif; ?>
+												
+												<!-- <li>2002 г. Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (психотерапия). Циклы переподготовки</li>
+												<li>2001 г. Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (психиатрия-наркология). Циклы переподготовки</li>
+												<li>2000 г. Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (психиатрия). Циклы переподготовки</li>
+												<li>1999 г. Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (анестезиология-реаниматология). Циклы переподготовки</li>
+												<li>1997 г. Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (терапия). Интернатура</li>
+												<li>1996 г. Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (лечебное дело). Базовое образование</li> -->
+											</ul>
+										</div>
+									</div>
+									<div>
+										<p class="h3 lilac">Трудовая деятельность</p>
+										<div class="acc-text" style="display: none;">
+											<ul>
+												<li>2023 — н. в. «Центр Современной Педиатрии». Врач-психиатр, психотерапевт</li>
+												<li>2021 — 2023. клиника «На Театральной». Врач-психотерапевт, врач-психиатр</li>
+												<li>2021 — 2023. ООО «Скорая помощь 072». Заместитель главного врача, психиатр, психотерапевт</li>
+												<li>2020 — н. в. Санкт-Петербург, Научно-Клинический Центр «Карповка». Главный врач, психиатр, психотерапевт, психиатр-нарколог</li>
+												<li>2010 — 2017. ООО «Альтернатива +», Южно-Моравская, 29а. Врач психиатр, психотерапевт, психиатр - нарколог</li>
+												<li>2001 — 2017. Медико-психотерапевтический центр, Московский проспект, 6. Врач психотерапевт, психиатр - нарколог</li>
+												<li>1997 — 2007. БУЗ ВО «ГКБСМП №1», Проспект Патриотов, 23. Врач психиатр - нарколог, врач анестезиолог-реаниматолог ПИТ</li>
+											</ul>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
+						<div class="text-center title-certificats"><p>Дипломы и сертификаты <span class="lilac">Бобонова Андрея Михайловича</span></p></div>
+						<div class="certificats">
+							<a href="<?php echo TEMPLATE_URL ?>/img/cert1.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert1.jpg" alt="certificat"></a>
+							<a href="<?php echo TEMPLATE_URL ?>/img/cert2.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert2.jpg" alt="certificat"></a>
+							<a href="<?php echo TEMPLATE_URL ?>/img/cert3.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert3.jpg" alt="certificat"></a>
+							<a href="<?php echo TEMPLATE_URL ?>/img/cert4.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert4.jpg" alt="certificat"></a>
+							<a href="<?php echo TEMPLATE_URL ?>/img/cert5.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert5.jpg" alt="certificat"></a>
+							<a href="<?php echo TEMPLATE_URL ?>/img/cert6.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert6.jpg" alt="certificat"></a>
+							<a href="<?php echo TEMPLATE_URL ?>/img/cert7.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert7.jpg" alt="certificat"></a>
+							<a href="<?php echo TEMPLATE_URL ?>/img/cert8.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert8.jpg" alt="certificat"></a>
+							<a href="<?php echo TEMPLATE_URL ?>/img/cert9.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert9.jpg" alt="certificat"></a>
+							<a href="<?php echo TEMPLATE_URL ?>/img/cert10.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert10.jpg" alt="certificat"></a>
+							<a href="<?php echo TEMPLATE_URL ?>/img/cert11.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert11.jpg" alt="certificat"></a>
+							<a href="<?php echo TEMPLATE_URL ?>/img/cert12.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert12.jpg" alt="certificat"></a>
+						</div>
 					</div>
-				</div>
-				<div class="text-center title-certificats"><p>Дипломы и сертификаты <span class="lilac">Бобоновой Елены Николаевны</span></p></div>
-				<div class="certificats">
-					<a href="<?php echo TEMPLATE_URL ?>/img/cert13.jpg" data-fancybox="gallery2"><img src="<?php echo TEMPLATE_URL ?>/img/cert13.jpg" alt="certificat"></a>
-					<a href="<?php echo TEMPLATE_URL ?>/img/cert14.jpg" data-fancybox="gallery2"><img src="<?php echo TEMPLATE_URL ?>/img/cert14.jpg" alt="certificat"></a>
-				</div>
-			</div>
+				<?php endwhile; ?>
+			<?php wp_reset_postdata(); endif; ?>
 		</div>
 	</div>
 <?php }
@@ -272,10 +232,21 @@ function show_otzyvy() { ?>
 				<div class="text-center h4 lilac">отзывы</div>
 				<div class="h1 text-center">Нам важно <span class="lilac">что говорят о нас</span> наши клиенты</div>
 				<div class="b-reviews" >
-					<script src="https://res.smartwidgets.ru/app.js" defer></script>
+					<?php echo get_field('otzivi', 44); ?>
 					<div class="sw-app" data-app="d4700abffbcc805030ce8cda56e024dc"></div>
 				</div>
 			</div>
+		</div>
+	</div>
+<?php }
+
+function show_bottom_contacts() { ?>
+	<div class="s-contacts" id="contacts">
+		<div class="b-map"><?php show_map(); ?></div>		
+		<div class="b-contacts">
+			<p class="h1">Контакты</p>
+			<?php show_contacts(); ?>
+			<?php show_social(); ?>
 		</div>
 	</div>
 <?php }

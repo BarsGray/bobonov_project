@@ -28,8 +28,8 @@
 					<img src="<?php echo TEMPLATE_URL ?>/img/about.jpg" alt="">
 				</div>
 				<div class="text-about">
-					<p class="lilac">Психологический центр Бобоновых - это место, где вы сможете получить квалифицированную консультацию психолога. Прием ведут специалисты с многолетним опытом. Психологи центра работают с различными проблемами и оказывают психотерапевтическую помощь в кризисных ситуациях. Доверьтесь профессионалам психологического центра Бобоновых и получите поддержку, в которых вы нуждаетесь!</p>
-					<p>Кабинет психолога - это безопасное пространство, где вы сможете обсудить проблемы, которые вас беспокоят. Специалист с пониманием отнесется к вашим запросам и поможет найти решение. К психологам могут обратиться люди с различными проблемами, затрагивающими все сферы жизни человека. Психологический центр Бобоновых гарантирует конфиденциальность встреч.</p>
+					<p class="lilac"><?php the_field('o_centre_top', 39); ?></p>
+					<p><?php the_field('o_centre_bottom', 39); ?></p>
 					<a data-fancybox data-src="#popup" href="javascript:;" class="btn-round">Записаться на прием</a>
 				</div>
 			</div>
@@ -206,7 +206,7 @@
 				<div class="text-center h4 lilac">отзывы</div>
 				<div class="h1 text-center">Нам важно <span class="lilac">что говорят о нас</span> наши клиенты</div>
 				<div class="b-reviews" >
-					<script src="https://res.smartwidgets.ru/app.js" defer></script>
+					<?php echo get_field('otzivi', 44); ?>
 					<div class="sw-app" data-app="d4700abffbcc805030ce8cda56e024dc"></div>
 				</div>
 			</div>
@@ -302,13 +302,5 @@
 			</div>			
 		</div>
 	</div>
-	<div class="s-contacts" id="contacts">
-		<div class="b-map"><?php show_map(); ?></div>		
-		<div class="b-contacts">
-			<p class="h1">Контакты</p>
-			<?php show_contacts(); ?>
-			<?php show_social(); ?>
-		</div>
-	</div>
-
+	<?php show_bottom_contacts(); ?>
 <?php get_footer(); ?>

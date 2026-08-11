@@ -78,28 +78,28 @@ function admin_head(){
 function merge_numbers($num) {
   return str_replace([' ', '-', '(', ')'],'',(string) ($num ?? ''));
 }
-// function register_avtopark() {
-// 	$post_labels = array(
-// 		'name' => 'Автопарк',
-// 		'singular_name' => 'Услуга',
-// 		'add_new' => 'Добавить новую',
-// 		'add_new_item' => 'Добавить новую услугу',
-// 		'edit_item' => 'Редактировать услугу',
-// 		'menu_name' => 'Автопарк'
-// 	);
+function register_specials() {
+	$post_labels = array(
+		'name' => 'Специалисты',
+		'singular_name' => 'Специалист',
+		'add_new' => 'Добавить',
+		'add_new_item' => 'Добавить',
+		'edit_item' => 'Редактировать',
+		'menu_name' => 'Специалисты'
+	);
 
-// 	$post_args = array(
-// 		'labels' => $post_labels,
-// 		'public' => true,
-// 		'has_archive' => 'services',
-// 		'menu_position' => 5,
-// 		'menu_icon' => 'dashicons-admin-network',
-// 		'supports' => array('title', 'editor', 'thumbnail'),
-// 		'rewrite' => array('slug' => 'services'),
-// 		'show_in_rest' => true,
-// 		'capability_type' => 'post',
-// 	);
+	$post_args = array(
+		'labels' => $post_labels,
+		'public' => true,
+		'has_archive' => 'specials',
+		'menu_position' => 5,
+		'menu_icon' => 'dashicons-id-alt',
+		'supports' => array('title', 'editor', 'thumbnail'),
+		'rewrite' => array('slug' => 'specials'),
+		'show_in_rest' => true,
+		'capability_type' => 'post',
+	);
 
-// 	register_post_type('service', $post_args);
-// }
-// add_action('init', 'register_avtopark');
+	register_post_type('specials', $post_args);
+}
+add_action('init', 'register_specials');

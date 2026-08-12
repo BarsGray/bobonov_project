@@ -90,12 +90,8 @@ function show_price() { ?>
 function show_about() { ?>
   <div class="s-about s-about_page" id="about">
 		<div class="container">
-			<div class="text-center lilac h4">
-				о центре
-			</div>
-			<div class="h1 text-center">
-				Наша <span class="lilac">миссия</span> улучшить ваше качество жизни 
-			</div>
+			<div class="text-center lilac h4">о центре</div>
+			<div class="h1 text-center">Наша <span class="lilac">миссия</span> улучшить ваше качество жизни</div>
 			<div class="b-about">
 				<div class="text-about">
 					<p class="lilac"><?php the_field('o_centre_top', 39); ?></p>
@@ -151,6 +147,45 @@ function show_contacts_page() { ?>
 		</div>
 	</div>
 <?php }
+function show_obrazovanie() {
+	if (!empty(get_field('obrazovanie')) && is_array(get_field('obrazovanie'))):?>
+		<div>
+			<p class="h3 lilac">Образование</p>
+			<div class="acc-text" style="display: none;">
+				<ul>
+					<?php foreach (get_field('obrazovanie') as $item):?>
+						<li><?php echo $item['period']; ?></li>
+					<?php endforeach;?>
+				</ul>
+			</div>
+		</div>
+	<?php endif;
+}
+function show_trudovaya_deyatelnost() {
+	if (!empty(get_field('trudovaya_deyatelnost')) && is_array(get_field('trudovaya_deyatelnost'))):?>
+		<div>
+			<p class="h3 lilac">Трудовая деятельность</p>
+			<div class="acc-text" style="display: none;">
+				<ul>
+					<?php foreach (get_field('trudovaya_deyatelnost') as $item):?>
+						<li><?php echo $item['deyatelnost']; ?></li>
+					<?php endforeach;?>
+				</ul>
+			</div>
+		</div>
+	<?php endif;
+}
+function show_diplomi($name) {
+  $diplomi = get_field('diplomi');
+	if ($diplomi): ?>
+		<div class="text-center title-certificats"><p>Дипломы и сертификаты <span class="lilac"><?php echo $name; ?></span></p></div>
+		<div class="certificats">
+			<?php foreach($diplomi as $item): ?>
+				<a href="<?php echo $item['url']; ?>" data-fancybox="gallery"><img src="<?php echo $item['url']; ?>" alt="<?php echo $item['alt']; ?>"></a>
+			<?php endforeach; ?>
+		</div>
+	<?php endif;
+}
 function show_spetsialisty() { ?>
   <div class="s_specialist s-specialists_page">
 		<div class="container">
@@ -168,74 +203,57 @@ function show_spetsialisty() { ?>
 								<p class="lilac specializations">Работает с: <?php the_field('work_with'); ?></p>
 								<p><?php the_content(); ?></p>
 								<div class="b-accordion">
-									<div>
-										<p class="h3 lilac">Образование</p>
-										<div class="acc-text" style="display: none;">
-											<ul>
-												<?php if (!empty(get_field('obrazovanie')) && is_array(get_field('obrazovanie'))):?>
-													<?php foreach (get_field('obrazovanie') as $item):?>
-														<li><?php echo $item['period']; ?></li>
-													<?php endforeach;?>
-												<?php endif; ?>
-												
-												<!-- <li>2002 г. Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (психотерапия). Циклы переподготовки</li>
-												<li>2001 г. Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (психиатрия-наркология). Циклы переподготовки</li>
-												<li>2000 г. Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (психиатрия). Циклы переподготовки</li>
-												<li>1999 г. Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (анестезиология-реаниматология). Циклы переподготовки</li>
-												<li>1997 г. Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (терапия). Интернатура</li>
-												<li>1996 г. Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (лечебное дело). Базовое образование</li> -->
-											</ul>
-										</div>
-									</div>
-									<div>
-										<p class="h3 lilac">Трудовая деятельность</p>
-										<div class="acc-text" style="display: none;">
-											<ul>
-												<li>2023 — н. в. «Центр Современной Педиатрии». Врач-психиатр, психотерапевт</li>
-												<li>2021 — 2023. клиника «На Театральной». Врач-психотерапевт, врач-психиатр</li>
-												<li>2021 — 2023. ООО «Скорая помощь 072». Заместитель главного врача, психиатр, психотерапевт</li>
-												<li>2020 — н. в. Санкт-Петербург, Научно-Клинический Центр «Карповка». Главный врач, психиатр, психотерапевт, психиатр-нарколог</li>
-												<li>2010 — 2017. ООО «Альтернатива +», Южно-Моравская, 29а. Врач психиатр, психотерапевт, психиатр - нарколог</li>
-												<li>2001 — 2017. Медико-психотерапевтический центр, Московский проспект, 6. Врач психотерапевт, психиатр - нарколог</li>
-												<li>1997 — 2007. БУЗ ВО «ГКБСМП №1», Проспект Патриотов, 23. Врач психиатр - нарколог, врач анестезиолог-реаниматолог ПИТ</li>
-											</ul>
-										</div>
-									</div>
+									<?php show_obrazovanie(); show_trudovaya_deyatelnost(); ?>
 								</div>
 							</div>
 						</div>
-						<div class="text-center title-certificats"><p>Дипломы и сертификаты <span class="lilac">Бобонова Андрея Михайловича</span></p></div>
-						<div class="certificats">
-							<a href="<?php echo TEMPLATE_URL ?>/img/cert1.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert1.jpg" alt="certificat"></a>
-							<a href="<?php echo TEMPLATE_URL ?>/img/cert2.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert2.jpg" alt="certificat"></a>
-							<a href="<?php echo TEMPLATE_URL ?>/img/cert3.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert3.jpg" alt="certificat"></a>
-							<a href="<?php echo TEMPLATE_URL ?>/img/cert4.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert4.jpg" alt="certificat"></a>
-							<a href="<?php echo TEMPLATE_URL ?>/img/cert5.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert5.jpg" alt="certificat"></a>
-							<a href="<?php echo TEMPLATE_URL ?>/img/cert6.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert6.jpg" alt="certificat"></a>
-							<a href="<?php echo TEMPLATE_URL ?>/img/cert7.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert7.jpg" alt="certificat"></a>
-							<a href="<?php echo TEMPLATE_URL ?>/img/cert8.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert8.jpg" alt="certificat"></a>
-							<a href="<?php echo TEMPLATE_URL ?>/img/cert9.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert9.jpg" alt="certificat"></a>
-							<a href="<?php echo TEMPLATE_URL ?>/img/cert10.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert10.jpg" alt="certificat"></a>
-							<a href="<?php echo TEMPLATE_URL ?>/img/cert11.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert11.jpg" alt="certificat"></a>
-							<a href="<?php echo TEMPLATE_URL ?>/img/cert12.jpg" data-fancybox="gallery"><img src="<?php echo TEMPLATE_URL ?>/img/cert12.jpg" alt="certificat"></a>
-						</div>
+						<?php show_diplomi(get_the_title()); ?>
 					</div>
 				<?php endwhile; ?>
 			<?php wp_reset_postdata(); endif; ?>
 		</div>
 	</div>
 <?php }
+function show_spetsialisty_front() {
+	$query = new WP_Query(['post_type' => 'specials','posts_per_page' => -1,]);
+	$count = 0;
+	if ($query->have_posts()): ?>
+		<?php while ($query->have_posts()): $query->the_post(); $count++; ?>
+			<div class="b-specialist<?php echo $count % 2 === 0 ? ' spec-2 ' : ''; ?>">
+				<div class="spec-photo text-center">
+					<?php the_post_thumbnail(); ?>
+					<p class="lilac h3"><?php the_title(); ?></p>
+					<a data-fancybox data-src="#popup" href="javascript:;" class="btn-lilac">Записаться</a>
+				</div>
+				<div class="spec-info">
+					<p class="lilac h3"><?php the_title(); ?></p>
+					<p><?php the_field('specializaciya'); ?></p>
+					<p>Стаж: <?php the_field('stazh'); ?></p>
+					<p class="lilac">Работает с: <?php the_field('work_with'); ?></p>
+					<p><?php the_content(); ?></p>
+					<div class="b-accordion">
+						<?php show_obrazovanie(); show_trudovaya_deyatelnost(); ?>
+					</div>
+				</div>
+			</div>
+			<?php show_diplomi(get_the_title()); ?>
+		<?php endwhile; ?>
+	<?php wp_reset_postdata(); endif; ?>
+<?php }
+function show_reviews_box() { ?>
+	<div id="reviews">
+		<div class="text-center h4 lilac">отзывы</div>
+		<div class="h1 text-center">Нам важно <span class="lilac">что говорят о нас</span> наши клиенты</div>
+		<div class="b-reviews" >
+			<?php echo get_field('otzivi', 44); ?>
+			<div class="sw-app" data-app="d4700abffbcc805030ce8cda56e024dc"></div>
+		</div>
+	</div>
+<?php }
 function show_otzyvy() { ?>
   <div class="s-reviews_page">
 		<div class="container">
-			<div id="reviews">
-				<div class="text-center h4 lilac">отзывы</div>
-				<div class="h1 text-center">Нам важно <span class="lilac">что говорят о нас</span> наши клиенты</div>
-				<div class="b-reviews" >
-					<?php echo get_field('otzivi', 44); ?>
-					<div class="sw-app" data-app="d4700abffbcc805030ce8cda56e024dc"></div>
-				</div>
-			</div>
+			<?php show_reviews_box(); ?>
 		</div>
 	</div>
 <?php }

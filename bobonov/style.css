@@ -2061,6 +2061,14 @@ textarea.input-text
 
 .s-contacts {margin-top: 95px;}
 /* .handbook_inner {max-width: 1580px;margin: 0 auto;} */
+.time-photo img {
+	min-width: 100px;
+  min-height: 100px;
+  object-fit: cover;
+  object-position: top;
+  width: 100px;
+  height: 100px;
+}
 @media (hover: hover) {
 	.content_container a:hover {color: #3A3A3A;}
 	.price_link:hover {background-color: #fff;}

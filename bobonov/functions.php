@@ -322,3 +322,44 @@ function show_raspisanie() {
 	<?php endwhile; ?>
 	<?php wp_reset_postdata(); endif; ?>
 <?php }
+function show_handbook() { ?>
+	<div class="handbook_section">
+		<div class="container">
+      <p class="handbook_title"><?php the_field('serv_top_box_title'); ?></p>
+      <div class="handbook_box">
+        <?php $blok_so_spiskom = get_field('blok_so_spiskom');
+        if (!empty($blok_so_spiskom) && is_array($blok_so_spiskom)): ?>
+          <?php foreach($blok_so_spiskom as $blok): ?>
+            <div class="handbook_elem">
+              <p class="handbook_elem_title"><?php echo $blok['zagolovok_spiska']; ?></p>
+              <ul class="handbook_elem_list">
+                <?php if (!empty($blok) && is_array($blok)): ?>
+                  <?php foreach($blok['top_punkti_spiska'] as $item_list): ?>
+                    <li><p><?php echo $item_list['top_punkt_spiska'] ?></p></li>
+                  <?php endforeach; ?>
+                <?php endif; ?>
+              </ul>
+            </div>
+          <?php endforeach; ?>
+        <?php endif; ?>
+      </div>
+		</div>
+	</div>
+<?php }
+function show_benefits() { ?>
+	<div class="benefits_section">
+		<div class="container">
+			<div class="benefits_inner">
+				<p class="benefits_title"><?php the_field('two_box_zagolovok'); ?></p>
+				<ul class="benefits_list">
+					<?php $two_box_list = get_field('two_box_list'); 
+						if (!empty($two_box_list) && is_array($two_box_list)): ?>
+            <?php foreach($two_box_list as $item_list): ?>
+              <li><p><?php echo $item_list['two_box_punkt_spiska'] ?></p></li>
+						<?php endforeach; ?>
+					<?php endif; ?>
+				</ul>
+			</div>
+		</div>
+	</div>
+<?php }

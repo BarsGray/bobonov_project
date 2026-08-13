@@ -27,19 +27,19 @@ function show_contacts() { ?>
 <?php }
 
 function show_page_title() { ?>
-  <div class="s-top oter_top" style="background-image: url('<?php echo TEMPLATE_URL ?>/img/nd_img/reviews_title.jpg');">
+	<?php $bg_img_title = ($item_img = get_field('izobrazhenie_v_shapke')) ? $item_img['url'] : TEMPLATE_URL . '/img/nd_img/specials_title.jpg'; ?>
+  <div class="s-top oter_top" style="background-image: url('<?php echo $bg_img_title; ?>');">
     <div class="container">
-      <p class="h1"><span class="lilac">Прайс</p>
-			<div class="bread">
-        <span>
-          <a href="/"><span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_2006_569)"><path d="M14.6667 3.816V1.33333C14.6667 0.965335 14.3687 0.666668 14 0.666668C13.6313 0.666668 13.3333 0.965335 13.3333 1.33333V2.91067L9.86467 0.570002C8.732 -0.193998 7.268 -0.193998 6.13533 0.570002L1.46867 3.71934C0.549333 4.34 0 5.37267 0 6.48267V12.6667C0 14.5047 1.49533 16 3.33333 16H5.33333C5.702 16 6 15.7013 6 15.3333V10C6 9.63267 6.29867 9.33334 6.66667 9.33334H9.33333C9.70133 9.33334 10 9.63267 10 10V15.3333C10 15.7013 10.298 16 10.6667 16H12.6667C14.5047 16 16 14.5047 16 12.6667V6.48267C16 5.42867 15.504 4.444 14.6667 3.816ZM14.6667 12.6667C14.6667 13.7693 13.7693 14.6667 12.6667 14.6667H11.3333V10C11.3333 8.89734 10.436 8 9.33333 8H6.66667C5.564 8 4.66667 8.89734 4.66667 10V14.6667H3.33333C2.23067 14.6667 1.33333 13.7693 1.33333 12.6667V6.48267C1.33333 5.81667 1.66267 5.19667 2.21467 4.82467L6.88133 1.67533C7.56133 1.21667 8.43867 1.21667 9.118 1.67533L13.7847 4.82467C14.3367 5.19667 14.666 5.81667 14.666 6.48267L14.6667 12.6667Z" fill="white"/></g><defs><clipPath id="clip0_2006_569"><rect width="16" height="16" fill="white"/></clipPath></defs></svg></span></a>
-					<span class="divider">></span>
-					<span class="kb_title">Прайс</span>
-				</span>
-			</div>
+      <p class="h1"><span class="lilac"><?php the_title(); ?></p>
+			<?php
+			if (is_singular('services') && $sub_title_text = get_field('sub_title_text')) echo '<p class="sub_title_text">' . $sub_title_text . '</p>';
+			else breadcrumbs();
+			?>
+			<a data-fancybox data-src="#popup" href="javascript:;" class="btn">Записаться</a>
 		</div>
 	</div>
 <?php }
+
 function show_price() { ?>
   <div class="s-price_page">
 		<div class="container">
@@ -103,7 +103,7 @@ function show_about() { ?>
 <?php }
 
 function show_contacts_page() { ?>
-  	<div class="contacts_page">
+  <div class="contacts_page">
 		<div class="container">
 			<div class="contacts_left_box">
 				<div class="left_box_top">
@@ -111,14 +111,10 @@ function show_contacts_page() { ?>
 					<p class="contacts_desc">Задайте вопрос, который вас беспокоит, или запишитесь на консультацию в удобное время.</p>
 				</div>
 				<div class="left_box_bottom">
-					<div class="social">
-						<a href=""><svg> <use xlink:href="#vk"></use></svg></a>
-						<a href=""><svg> <use xlink:href="#wt"></use></svg></a>
-						<a href=""><svg> <use xlink:href="#tg"></use></svg></a>
-					</div>
-					<p class="contacts-info">г. Воронеж, ул. Плехановская, д. 23</p>
-					<p class="contacts-info"><a href="tel:+79999999999">+7 (999) 999 99 99</a></p>
-					<p class="contacts-info"><a href="mailto:psy_center@mail.ru">psy_center@mail.ru</a></p>
+					<?php
+						show_social();
+						show_contacts();
+					?>
 				</div>
 			</div>
 			<div class="contacts_right_box">
@@ -147,6 +143,7 @@ function show_contacts_page() { ?>
 		</div>
 	</div>
 <?php }
+
 function show_obrazovanie() {
 	if (!empty(get_field('obrazovanie')) && is_array(get_field('obrazovanie'))):?>
 		<div>
@@ -161,6 +158,7 @@ function show_obrazovanie() {
 		</div>
 	<?php endif;
 }
+
 function show_trudovaya_deyatelnost() {
 	if (!empty(get_field('trudovaya_deyatelnost')) && is_array(get_field('trudovaya_deyatelnost'))):?>
 		<div>
@@ -175,6 +173,7 @@ function show_trudovaya_deyatelnost() {
 		</div>
 	<?php endif;
 }
+
 function show_diplomi($name) {
   $diplomi = get_field('diplomi');
 	if ($diplomi): ?>
@@ -186,6 +185,7 @@ function show_diplomi($name) {
 		</div>
 	<?php endif;
 }
+
 function show_spetsialisty() { ?>
   <div class="s_specialist s-specialists_page">
 		<div class="container">
@@ -214,6 +214,7 @@ function show_spetsialisty() { ?>
 		</div>
 	</div>
 <?php }
+
 function show_spetsialisty_front() {
 	$query = new WP_Query(['post_type' => 'specials','posts_per_page' => -1,]);
 	$count = 0;
@@ -240,6 +241,7 @@ function show_spetsialisty_front() {
 		<?php endwhile; ?>
 	<?php wp_reset_postdata(); endif; ?>
 <?php }
+
 function show_reviews_box() { ?>
 	<div id="reviews">
 		<div class="text-center h4 lilac">отзывы</div>
@@ -250,6 +252,7 @@ function show_reviews_box() { ?>
 		</div>
 	</div>
 <?php }
+
 function show_otzyvy() { ?>
   <div class="s-reviews_page">
 		<div class="container">
@@ -267,4 +270,55 @@ function show_bottom_contacts() { ?>
 			<?php show_social(); ?>
 		</div>
 	</div>
+<?php }
+
+function show_feedback() { ?>
+	<div class="s-feedback" id="feedback">
+		<div class="container">
+			<div class="b-feedback">
+				<p class="h1"><span class="lilac">Записаться</span> на прием</p>
+				<form id="feedback-form" action="/" method="POST">
+					<div class="form-flex">
+						<p><input type="text" required name="name" class="input-text" placeholder="Имя"></p>
+						<p><input type="tel" required name="phone" class="input-text" placeholder="Телефон"></p>
+					</div>
+					<textarea name="comment" class="input-text" placeholder="Что вас беспокоит?"></textarea>
+					<input type="text" name="docs" class="input-text" placeholder="К кому вы хотели бы записаться?">					
+					<label class="input-label">
+						<input type="checkbox" class="input-check" name="check">
+						<span>Нажимая на кнопку “Записаться”, я даю свое согласие на обработку персональных данных</span>
+					</label>
+					<input type="submit" class="btn-round" value="Записаться на прием">
+					<!-- <input type="hidden" name="recaptcha_response" id="recaptchaResponse"> -->
+				</form>
+			</div>
+		</div>
+	</div>
+<?php }
+
+function show_raspisanie() {
+	$query = new WP_Query(['post_type' => 'specials','posts_per_page' => -1,]);
+	if ($query->have_posts()): ?>
+	<?php while ($query->have_posts()): $query->the_post();
+		$formats_priema = get_field('formats_priema'); ?>
+	<div>
+		<div class="time-spec">
+			<div class="time-photo"><?php the_post_thumbnail(); ?></div>
+			<div class="spec-title">
+				<p class="h2"><?php the_title(); ?></p>
+				<p><?php the_field('specializaciya'); ?></p>
+			</div>
+		</div>
+		<div class="spec-timetable">
+			<?php if (!empty($formats_priema) && is_array($formats_priema)): ?>
+				<ul>
+					<?php foreach($formats_priema as $item): ?>
+						<li><?php echo $item['format_priema']; ?> <span><?php echo $item['time_priema']; ?></span></li>
+					<?php endforeach; ?>
+				</ul>
+			<?php endif; ?>
+		</div>
+	</div>
+	<?php endwhile; ?>
+	<?php wp_reset_postdata(); endif; ?>
 <?php }

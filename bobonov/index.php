@@ -131,61 +131,12 @@
 		<div class="container">
 			<p class="h1 text-center">Расписание</p>
 			<div class="b-timetable">
-				<div>
-					<div class="time-spec">
-						<div class="time-photo"><img src="<?php echo TEMPLATE_URL ?>/img/spec.jpg" alt=""></div>
-						<div class="spec-title">
-							<p class="h2">Бобонов Андрей Михайлович</p>
-							<p>Психотерапевт, клинический психолог</p>
-						</div>
-					</div>
-					<div class="spec-timetable">
-						<ul>
-							<li>Частный прием <span>пн - ср 9:00 - 20:00</span></li>
-							<li>Онлайн <span>пн - ср 9:00 - 20:00</span></li>
-							<li>Прием в клинике <span>пн - ср 9:00 - 20:00</span></li>
-						</ul>
-					</div>
-				</div>
-				<div>
-					<div class="time-spec">
-						<div class="time-photo"><img src="<?php echo TEMPLATE_URL ?>/img/spec2.jpg" alt=""></div>
-						<div class="spec-title">
-							<p class="h2">Бобонова Елена Николаевна</p>
-							<p>Психотерапевт</p>
-						</div>
-					</div>
-					<div class="spec-timetable">
-						<ul>
-							<li>Частный прием <span>пн - ср 9:00 - 20:00</span></li>
-							<li>Онлайн <span>пн - ср 9:00 - 20:00</span></li>
-							<li>Прием в клинике <span>пн - ср 9:00 - 20:00</span></li>
-						</ul>
-					</div>
-				</div>
+				<?php show_raspisanie(); ?>
 			</div>
 		</div>
 	</div>
-	<div class="s-feedback" id="feedback">
-		<div class="container">
-			<div class="b-feedback">
-				<p class="h1"><span class="lilac">Записаться</span> на прием</p>
-				<form id="feedback-form" action="/" method="POST">
-					<div class="form-flex">
-						<p><input type="text" required name="name" class="input-text" placeholder="Имя"></p>
-						<p><input type="tel" required name="phone" class="input-text" placeholder="Телефон"></p>
-					</div>
-					<textarea name="comment" class="input-text" placeholder="Что вас беспокоит?"></textarea>
-					<input type="text" name="docs" class="input-text" placeholder="К кому вы хотели бы записаться?">					
-					<label class="input-label">
-						<input type="checkbox" class="input-check" name="check">
-						<span>Нажимая на кнопку “Записаться”, я даю свое согласие на обработку персональных данных</span>
-					</label>
-					<input type="submit" class="btn-round" value="Записаться на прием">
-					<!-- <input type="hidden" name="recaptcha_response" id="recaptchaResponse"> -->
-				</form>
-			</div>			
-		</div>
-	</div>
-	<?php show_bottom_contacts(); ?>
-<?php get_footer(); ?>
+<?php
+	show_feedback();
+	show_bottom_contacts();
+	get_footer();
+?>

@@ -132,20 +132,16 @@ h4, .h4 {
 	h2, .h2 {font-size: 24px;}
 	h3, .h3 {font-size: 20px;}
 }
-.m-red
-{
+.m-red {
 	color: #AA2938;
 }
-img
-{
+img {
 	max-width: 100%;
 }
-.wrapper
-{
+.wrapper {
 	overflow: hidden;
 }
-.header
-{
+.header {
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -155,18 +151,15 @@ img
 	transition: all 0.5s ease;
 	z-index: 10;
 }
-.header.fixed
-{
+.header.fixed {
 	position: fixed;
 }
-.header a
-{
+.header a {
 	color: #fff;
 	display: inline-block;
 	position: relative;
 }
-.header a.tel:before, .main-menu a:before
-{
+.bread a::before,.header a.tel::before,.main-menu a::before {
 	content: "";
 	width: 0;
 	height: 1px;
@@ -178,18 +171,15 @@ img
 	transition: width 0.5s ease;
 	background: #fff;
 }
-.header a.tel:hover:before, .main-menu a:hover:before
-{
+.bread a:hover::before,.header a.tel:hover::before,.main-menu a:hover::before {
 	width: 100%;	
 }
-.logo
-{
+.logo {
 	font-size: 20px;
 	font-family: prata;
 	line-height: 1.4;
 }
-.header-top
-{
+.header-top {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -205,41 +195,33 @@ img
 	-o-transition: all 0.5s ease;
 	transition: all 0.5s ease;
 }
-.header.fixed .header-top
-{
+.header.fixed .header-top {
 	display: none;
 }
-.header-right .tel
-{
+.header-right .tel {
 	font-size: 20px;
 }
-.header-right .social
-{
+.header-right .social {
 	display: inline-block;
 	vertical-align: middle;
 	margin: 0 30px 0 10px;
 }
-.social a 
-{
+.social a  {
 	margin: 0 6px;
 	display: inline-block;
 }
-.social a svg
-{
+.social a svg {
 	
 	width: 24px;
 	height: 24px;
 }
-.header-right .social a:before
-{
+.header-right .social a:before {
 	content: none;
 }
-.header-right .social a svg
-{	
+.header-right .social a svg {
 	fill: #fff;
 }
-.header-right .social a:hover svg
-{
+.header-right .social a:hover svg {
 	fill: #562A6F;
 }
 
@@ -1764,10 +1746,32 @@ textarea.input-text
 }
 /* ================================ new_design ============================================= */
 .oter_top .h1 {text-align: center;margin-bottom: 20px;}
-.oter_top {background-repeat: no-repeat;background-position: center top;}
+.oter_top a.btn {
+	max-width: 288px;
+	width: 100%;
+	margin: 20px auto 0;
+	background: #fff;
+  color: #562A6F;
+  padding: 10px 30px;
+  display: block;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+	text-align: center;
+}
+.oter_top a.btn:active {background: #562A6F;color: #fff;}
+.sub_title_text {margin: 0 auto;max-width: 628px;text-align: center;line-height: 1.8; font-size: 16px;}
+.oter_top {
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: cover;
+	padding-bottom: 140px;
+	padding-top: 227px;
+	color: #fff;
+}
 .oter_top .lilac {color: #fff;}
-.bread {text-align: center;font-size: 20px;}
-.oter_top {padding-bottom: 140px;padding-top: 227px; color: #fff;}
+.bread a,.bread {text-align: center;font-size: 20px;color: #fff;position: relative;}
+.bread {margin-bottom: 20px;}
 .divider {margin: 0 20px;}
 .s-about_page {margin: 60px 0 60px;padding: 0;}
 .s-about_page .b-about {justify-content: center;}
@@ -2074,6 +2078,7 @@ textarea.input-text
 	.price_link:hover {background-color: #fff;}
 	.left_box_bottom .social svg:hover {fill: #3A3A3A;}
 	.left_box_bottom .contacts-info a:hover {color: #3A3A3A;}
+	.oter_top a.btn:hover {background: #562A6F;color: #fff;}
 }
 @media (max-width: 1300px) {
 	.b-about .text-about {max-width: 800px;}
@@ -2105,6 +2110,7 @@ textarea.input-text
 		gap: 20px;
 	}
 	.handbook_section {margin: 80px 0 120px;}
+	.oter_top a.btn {max-width: 169px;}
 }
 @media (max-width: 992px) {
 	.oter_top {
@@ -2154,6 +2160,7 @@ textarea.input-text
 	.handbook_elem_title{font-size: 20px;}
 	.handbook_elem_list li {font-size: 14px;}
 	.handbook_section {margin: 60px 0 100px;}
+	.sub_title_text {font-size: 14px;max-width: 530px;}
 }
 @media (max-width: 640px) {
 	.form_box form {padding: 10px;}

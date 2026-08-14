@@ -3,8 +3,9 @@ get_header();
 show_page_title();
 
 if (get_the_content() || get_field("text_before")): ?>
-  <div class="content_container"><?php the_field("text_before"); the_content(); ?></div>
+  <div class="content_container"><?php get_field("text_before") ? the_field("text_before") : ''; get_the_content() ? the_content() : '';?></div>
 <?php endif; ?>
+
 <?php
   if(is_page(33)) show_price();
   if(is_page(39)) show_about();

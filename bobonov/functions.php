@@ -399,6 +399,7 @@ function show_specialists_on_services() {
 		</div>
 	<?php wp_reset_postdata(); endif; ?>
 <?php }
+
 function show_price_sevice_page() { ?>
 	<?php $vid_uslugi = get_field('vid_uslugi');
 	if (!empty($vid_uslugi) && is_array($vid_uslugi)): ?>

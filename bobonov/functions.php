@@ -187,7 +187,7 @@ function show_diplomi($name) {
 }
 
 function show_spetsialisty() { ?>
-  <div class="s_specialist s-specialists_page">
+  <div class="s_specialist s-specialists_page padd_top_none">
 		<div class="container">
 			<?php 
 			$query = new WP_Query(['post_type' => 'specials','posts_per_page' => -1,]);
@@ -327,11 +327,15 @@ function show_handbook() { ?>
 	if (!empty($blok_so_spiskom) && is_array($blok_so_spiskom)): ?>
 		<div class="handbook_section">
 			<div class="container">
-				<p class="handbook_title"><?php the_field('serv_top_box_title'); ?></p>
+				<?php if ($serv_top_box_title = get_field('serv_top_box_title')): ?>
+					<p class="handbook_title"><?php echo $serv_top_box_title; ?></p>
+				<?php endif; ?>
 				<div class="handbook_box">
 					<?php foreach($blok_so_spiskom as $blok): ?>
 						<div class="handbook_elem">
-							<p class="handbook_elem_title"><?php echo $blok['zagolovok_spiska']; ?></p>
+							<?php if (!empty($blok['zagolovok_spiska'])): ?>
+								<p class="handbook_elem_title"><?php echo $blok['zagolovok_spiska']; ?></p>
+							<?php endif; ?>
 							<ul class="handbook_elem_list">
 								<?php if (!empty($blok['top_punkti_spiska']) && is_array($blok['top_punkti_spiska'])): ?>
 									<?php foreach($blok['top_punkti_spiska'] as $item_list): ?>
@@ -347,12 +351,14 @@ function show_handbook() { ?>
 	<?php endif; ?>
 <?php }
 function show_benefits() { ?>
-	<?php $two_box_list = get_field('two_box_list'); 
+	<?php $two_box_list = get_field('two_box_list');
 		if (!empty($two_box_list) && is_array($two_box_list)): ?>
 			<div class="benefits_section">
 				<div class="container">
 					<div class="benefits_inner">
-						<p class="benefits_title"><?php the_field('two_box_zagolovok'); ?></p>
+						<?php if ($two_box_zagolovok = get_field('two_box_zagolovok')): ?>
+							<p class="benefits_title"><?php echo $two_box_zagolovok; ?></p>
+						<?php endif; ?>
 						<ul class="benefits_list">
 							<?php foreach($two_box_list as $item_list): ?>
 								<li><p><?php echo $item_list['two_box_punkt_spiska'] ?></p></li>
@@ -361,5 +367,64 @@ function show_benefits() { ?>
 					</div>
 				</div>
 			</div>
+	<?php endif; ?>
+<?php }
+
+function show_specialists_on_services() {
+	$query = new WP_Query(['post_type' => 'specials','posts_per_page' => -1,]);
+	if ($query->have_posts()): ?>
+		<div class="s-specialists s-specialists_page" id="specialists">
+			<div class="spec-decor"><div></div></div>
+			<div class="container">
+				<p class="text-center lilac h4">о психологах</p>
+				<p class="h1 text-center">Прием ведут  <span class="lilac">квалифицированные специалисты</span></p>
+				<div class="specialists_box">
+					<?php while ($query->have_posts()): $query->the_post();?>
+						<div class="b-specialist">
+							<div class="specialist_foto">
+								<?php the_post_thumbnail(); ?>
+							</div>
+							<div class="spec-info">
+								<p class="lilac h3 text-center name"><?php the_title(); ?></p>
+								<p class="text-center level"><?php the_field('specializaciya'); ?></p>
+								<p class="text-center stazh">Стаж: <?php the_field('stazh'); ?></p>
+								<a data-fancybox data-src="#popup" href="javascript:;" class="btn-lilac">Записаться</a>
+								<p class="lilac specializations">Работает с: <?php the_field('work_with'); ?></p>
+								<p><?php the_content(); ?></p>
+							</div>
+						</div>
+					<?php endwhile; ?>
+				</div>
+			</div>
+		</div>
+	<?php wp_reset_postdata(); endif; ?>
+<?php }
+function show_price_sevice_page() { ?>
+	<?php $vid_uslugi = get_field('vid_uslugi');
+	if (!empty($vid_uslugi) && is_array($vid_uslugi)): ?>
+		<div class="s-price_page">
+			<div class="container">
+				<div class="text-center lilac h4">прайс</div>
+				<div class="h1 text-center"><span class="lilac">Цены</span> на услуги</div>
+				<div class="prices_box">
+					<?php foreach($vid_uslugi as $vid): ?>
+						<div class="price_item">
+							<p class="price_title"><?php echo $vid['nazvanie_vida_uslugi'] ? $vid['nazvanie_vida_uslugi'] : ''; ?></p>
+							<p class="text_dec">Что происходит на сессии:</p>
+							<?php if (!empty($vid['na_sessii']) && is_array($vid['na_sessii'])): ?>
+								<ul class="procedur_list">
+									<?php foreach($vid['na_sessii'] as $item_list): ?>
+										<li class="procedur_item"><p><?php echo $item_list['na_sessii_punkt'] ? $item_list['na_sessii_punkt'] : ''; ?></p></li>
+									<?php endforeach; ?>
+								</ul>
+							<?php endif; ?>
+							<p class="procedur_time">Продолжительность: <?php echo $vid['prodolzhitelnost'] ? $vid['prodolzhitelnost'] : ''; ?></p>
+							<p class="price"><?php echo $vid['cena_vida_uslugi'] ? $vid['cena_vida_uslugi'] : ''; ?></p>
+							<a href="#" class="price_link">Записаться на прием</a>
+						</div>
+					<?php endforeach; ?>
+				</div>
+			</div>
+		</div>
 	<?php endif; ?>
 <?php }

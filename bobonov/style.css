@@ -1888,10 +1888,7 @@ textarea.input-text
 .map_on_contacts {padding-bottom: 100px;}
 .map_on_contacts iframe {height: 600px;}
 .s_specialist_inner {max-width: 770px;margin: 0 auto;}
-.s_specialist .level {
-	font-family: prata;
-	font-size: 20px;
-}
+.s_specialist .level {font-family: prata;font-size: 20px;}
 .s-specialists_page .stazh,.s_specialist .stazh {margin-bottom: 40px;}
 .s-specialists_page .spec-info p.lilac:not(.h3),.s_specialist .spec-info p.lilac:not(.h3) {margin-top: 0;margin-bottom: 10px;}
 .s-specialists_page .specializations,.s_specialist .specializations {font-family: prata;font-size: 20px;line-height: 1.4;}
@@ -1924,7 +1921,8 @@ textarea.input-text
 
 .s_specialist .specialist_foto {margin-bottom: 40px;}
 .specialists_box {
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(2,1fr);
 	gap: 40px;
 }
 .specialists_box .b-specialist {
@@ -1968,6 +1966,7 @@ textarea.input-text
 }
 .s-specialists_page .specialist_foto img {object-position: top;}
 .s-specialists_page {padding-top: 125px;}
+.s-specialists_page.padd_top_none {padding-top: 0;}
 .benefits_section {margin: 140px 0;}
 .benefits_inner {max-width: 1040px;margin: 0 auto;}
 .benefits_title {
@@ -2073,9 +2072,20 @@ textarea.input-text
 .menu-item-has-children {position: relative;}
 .menu-item-has-children>a {padding-right: 26px;position: relative;}
 .menu-item-has-children .sub-menu {
+	text-align: start;
 	opacity: 0;
   visibility: hidden;
   transition: opacity .3s ease, transform .3s ease, visibility .3s ease;
+	position: absolute;
+	background-color: #fff;
+	font-size: 16px;
+	padding: 20px;
+	top: calc(100% + 14px);
+	left: 50%;
+	transform: translate(-50%,0);
+	width: 325px;
+	display: flex;
+	flex-direction: column;
 }
 .menu-item-has-children:hover .sub-menu,
 .menu-item-has-children:active .sub-menu {
@@ -2091,16 +2101,6 @@ textarea.input-text
 	height: 22px;
 	transform: translateY(-50%);
 	background: url('img/chevron_menu.svg') center center / contain no-repeat;
-}
-.menu-item-has-children .sub-menu {
-	position: absolute;
-	background-color: #fff;
-	font-size: 16px;
-	padding: 20px;
-	top: calc(100% + 14px);
-	left: 50%;
-	transform: translate(-50%,0);
-	width: 325px;
 }
 .menu-item-has-children .sub-menu li {margin: 0;}
 .menu-item-has-children .sub-menu a {margin-bottom: 16px; color: #562A6F;}
@@ -2175,7 +2175,7 @@ textarea.input-text
 @media (max-width: 767px) {
 	.s-about_page {margin-bottom: 60px;}
 	.s-reviews_page {margin-bottom: 60px;margin-top: 40px;}
-	.specialists_box {flex-direction: column;}
+	.specialists_box {grid-template-columns: 1fr;}
 	.specialists_box .b-specialist {margin-top: 40px;}
 	.s-specialists_page .specialist_foto {margin-bottom: 34px;}
 	.specialists_box .name {margin-bottom: 13px;}

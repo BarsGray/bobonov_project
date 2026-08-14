@@ -68,7 +68,8 @@ function register_specials() {
 
 	$post_args = array(
 		'labels' => $post_labels,
-		'public' => true,
+		'public' => false,
+    'show_ui' => true,
 		'menu_position' => 5,
 		'menu_icon' => 'dashicons-id-alt',
 		'supports' => array('title', 'editor', 'thumbnail'),

@@ -41,47 +41,41 @@ function show_page_title() { ?>
 <?php }
 
 function show_price() { ?>
+
   <div class="s-price_page">
 		<div class="container">
 			<div class="text-center lilac h4">прайс</div>
 			<div class="h1 text-center"><span class="lilac">Цены</span> на услуги</div>
 			<div class="prices_box">
-				<div class="price_item">
-					<p class="price_title">Индивидуальная терапия</p>
-					<p class="text_dec">Что происходит на сессии:</p>
-					<ul class="procedur_list">
-						<li class="procedur_item"><p>Разбираем вашу конкретную ситуацию без воды</p></li>
-						<li class="procedur_item"><p>Выявляем, что именно держит вас в напряжении</p></li>
-						<li class="procedur_item"><p>Даю техники, которые можно применить уже сегодня</p></li>
-					</ul>
-					<p class="procedur_time">Продолжительность: 45 минут</p>
-					<p class="price">от 5 000 ₽</p>
-					<a href="#" class="price_link">Записаться на прием</a>
-				</div>
-				<div class="price_item">
-					<p class="price_title">Индивидуальная терапия</p>
-					<p class="text_dec">Что происходит на сессии:</p>
-					<ul class="procedur_list">
-						<li class="procedur_item"><p>Разбираем вашу конкретную ситуацию без воды</p></li>
-						<li class="procedur_item"><p>Выявляем, что именно держит вас в напряжении</p></li>
-						<li class="procedur_item"><p>Даю техники, которые можно применить уже сегодня</p></li>
-					</ul>
-					<p class="procedur_time">Продолжительность: 45 минут</p>
-					<p class="price">от 5 000 ₽</p>
-					<a href="#" class="price_link">Записаться на прием</a>
-				</div>
-				<div class="price_item">
-					<p class="price_title">Индивидуальная терапия</p>
-					<p class="text_dec">Что происходит на сессии:</p>
-					<ul class="procedur_list">
-						<li class="procedur_item"><p>Разбираем вашу конкретную ситуацию без воды</p></li>
-						<li class="procedur_item"><p>Выявляем, что именно держит вас в напряжении</p></li>
-						<li class="procedur_item"><p>Даю техники, которые можно применить уже сегодня</p></li>
-					</ul>
-					<p class="procedur_time">Продолжительность: 45 минут</p>
-					<p class="price">от 5 000 ₽</p>
-					<a href="#" class="price_link">Записаться на прием</a>
-				</div>
+
+				<?php $query = new WP_Query(['post_type' => 'services','posts_per_page' => -1,]);
+				if ($query->have_posts()): ?>
+					<?php while ($query->have_posts()): $query->the_post();?>
+						<?php $vid_uslugi = get_field('vid_uslugi');
+						if (!empty($vid_uslugi) && is_array($vid_uslugi)): ?>
+
+							<?php foreach($vid_uslugi as $vid): ?>
+								<div class="price_item">
+									<p class="price_title"><?php echo $vid['nazvanie_vida_uslugi'] ? $vid['nazvanie_vida_uslugi'] : ''; ?></p>
+									<p class="text_dec">Что происходит на сессии:</p>
+									<?php if (!empty($vid['na_sessii']) && is_array($vid['na_sessii'])): ?>
+										<ul class="procedur_list">
+											<?php foreach($vid['na_sessii'] as $item_list): ?>
+												<li class="procedur_item"><p><?php echo $item_list['na_sessii_punkt'] ? $item_list['na_sessii_punkt'] : ''; ?></p></li>
+											<?php endforeach; ?>
+										</ul>
+									<?php endif; ?>
+									<p class="procedur_time">Продолжительность: <?php echo $vid['prodolzhitelnost'] ? $vid['prodolzhitelnost'] : ''; ?></p>
+									<p class="price"><?php echo $vid['cena_vida_uslugi'] ? $vid['cena_vida_uslugi'] : ''; ?></p>
+									<a href="#" class="price_link">Записаться на прием</a>
+								</div>
+							<?php endforeach; ?>
+
+						<?php
+						endif;
+					endwhile;
+				endif; ?>
+
 			</div>
 		</div>
 	</div>

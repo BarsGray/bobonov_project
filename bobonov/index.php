@@ -135,6 +135,9 @@
 			</div>
 		</div>
 	</div>
+	<?php	if (get_the_content()): ?>
+		<div class="content_container"><?php the_content();?></div>
+	<?php endif; ?>
 <?php
 	show_feedback();
 	show_bottom_contacts();

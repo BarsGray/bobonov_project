@@ -26,11 +26,36 @@ function show_contacts() { ?>
   <?php endif; ?>
 <?php }
 
+function show_title_box() { ?>
+  <div class="content_container">
+    <?php breadcrumbs();
+      $title = '';
+      if (is_tax())
+        $title = (get_field('alt_zag')) ? get_field('alt_zag') : single_term_title();
+      elseif(is_category())
+        $title = single_cat_title('', false);
+      elseif(is_404())
+        $title = 'Ошибка 404!';
+      else
+        $title = (get_field('alt_zag')) ? get_field('alt_zag') : get_the_title();
+      if(!is_singular('service')) { ?><h1 class="title"><?php echo $title; } ?></h1>
+  </div>
+<?php };
 function show_page_title() { ?>
 	<?php $bg_img_title = ($item_img = get_field('izobrazhenie_v_shapke')) ? $item_img['url'] : TEMPLATE_URL . '/img/nd_img/specials_title.jpg'; ?>
   <div class="s-top oter_top" style="background-image: url('<?php echo $bg_img_title; ?>');">
     <div class="container">
-      <p class="h1"><span class="lilac"><?php the_title(); ?></p>
+			<?php
+				$title = '';
+				if (is_tax())
+					$title = (get_field('alt_zag')) ? get_field('alt_zag') : single_term_title();
+				elseif(is_category())
+					$title = single_cat_title('', false);
+				elseif(is_404())
+					$title = 'Ошибка 404!';
+				else
+					$title = (get_field('alt_zag')) ? get_field('alt_zag') : get_the_title();
+			?><h1 class="h1"><span class="lilac"><?php echo $title; ?></span></h1>
 			<?php
 			if (is_singular('services') && $sub_title_text = get_field('sub_title_text')) echo '<p class="sub_title_text">' . $sub_title_text . '</p>';
 			else breadcrumbs();
@@ -132,9 +157,11 @@ function show_contacts_page() { ?>
 						</div>
 						<!-- <input type="hidden" name="recaptcha_response" id="recaptchaResponse"> -->
 					</form>
+					<?php echo do_shortcode('[contact-form-7 id="7a6d9e1" title="Контактная форма 1"]'); ?>
 				</div>
 			</div>
 		</div>
+		<div class="contacts_map"><?php show_map(); ?></div>
 	</div>
 <?php }
 

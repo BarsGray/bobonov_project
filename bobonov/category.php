@@ -1,13 +1,11 @@
 <?php get_header(); ?>
-  <div class="container">
-		<?php show_title_box(); ?>
+		<?php show_page_title(); ?>
 		<?php
 			$qo=get_queried_object();
 			$paged = get_query_var('paged') ? get_query_var('paged') : (get_query_var('page') ? get_query_var('page') : 1);
 			query_posts(array('cat' => $qo->term_id,'paged' => $paged));
 		?>
 		<div class="content_container">
-			<div class="content">
 				<?php if(have_posts()){ echo '<div class="services_page">';
 					while(have_posts()) { the_post();
 							$link = get_permalink(); ?>
@@ -17,7 +15,7 @@
 									<div class="category_page_item_img"><a href="<?php echo $link; ?>"><?php echo $post_thumbnail; ?></a></div>
 								<?php endif; ?>
 								<div class="category_page_item_rigth">
-									<p class="category_page_item_name"><a href="<?php echo $link; ?>"><?php the_title(); ?></a></p>
+									<p class="category_page_item_name lilac h3"><a href="<?php echo $link; ?>"><?php the_title(); ?></a></p>
 									<?php $content = apply_filters('the_content', get_the_content()); ?>
 									<p class="category_page_item_description"><?php echo wp_trim_words($content, 20, '...'); ?></p>
 									<a class="category_page_item_btn" href="<?php echo $link; ?>">Узнать больше</a>
@@ -26,7 +24,9 @@
 						<?php } echo '</div>';
 					wp_pagenavi();
 				} else echo '<p>Раздел не заполнен</p>'; ?>
-			</div>
 		</div>
-	</div>
-<?php get_footer(); ?>
+<?php
+	show_feedback();
+  show_bottom_contacts();
+	get_footer();
+?>

@@ -49,6 +49,13 @@ function breadcrumbs($sep = ' > ', $args = array(), $l10n = array()) {
 	echo $inst->get_crumbs($sep, $l10n, $args);
 }
 
+add_filter('do_shortcode_tag', function ($output, $tag, $attr) {
+  if ($tag !== 'contact-form-7') { return $output; }
+  $submit_text = !empty($attr['submit_text']) ? $attr['submit_text'] : 'Отправить';
+	$output = str_replace( 'value="SUBMIT_TEXT"', 'value="' . esc_attr($submit_text) . '"', $output);
+	return $output;
+}, 10, 3);
+
 function merge_numbers($num) {
   return str_replace([' ', '-', '(', ')'],'',(string) ($num ?? ''));
 }

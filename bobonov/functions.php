@@ -139,25 +139,7 @@ function show_contacts_page() { ?>
 			<div class="contacts_right_box">
 				<div class="form_box">
 					<p class="text-center h2 lilac">Запись на прием</p>
-					<form id="popup-form" action="/" method="POST">
-						<div class="form-flex">
-							<p><input type="text" required name="name" class="input-text" placeholder="Имя"></p>
-							<p><input type="tel" required name="phone" class="input-text" placeholder="Телефон"></p>
-						</div>
-						<textarea name="comment" class="input-text" placeholder="Что вас беспокоит?"></textarea>
-						<input type="text" name="docs" class="input-text" placeholder="К кому вы хотели бы записаться?">					
-						<div class="submit_box">
-							<label class="input-label">
-								<input type="checkbox" class="input-check" name="check">
-								<span>Нажимая на кнопку “Записаться”, я даю свое согласие на обработку персональных данных</span>
-							</label>
-							<div class="text-center">
-								<input type="submit" class="btn-lilac" value="Отправить">
-							</div>
-						</div>
-						<!-- <input type="hidden" name="recaptcha_response" id="recaptchaResponse"> -->
-					</form>
-					<?php echo do_shortcode('[contact-form-7 id="7a6d9e1" title="Контактная форма 1"]'); ?>
+					<?php echo do_shortcode('[contact-form-7 id="7a6d9e1" submit_text="Отправить"]'); ?>
 				</div>
 			</div>
 		</div>
@@ -298,20 +280,7 @@ function show_feedback() { ?>
 		<div class="container">
 			<div class="b-feedback">
 				<p class="h1"><span class="lilac">Записаться</span> на прием</p>
-				<form id="feedback-form" action="/" method="POST">
-					<div class="form-flex">
-						<p><input type="text" required name="name" class="input-text" placeholder="Имя"></p>
-						<p><input type="tel" required name="phone" class="input-text" placeholder="Телефон"></p>
-					</div>
-					<textarea name="comment" class="input-text" placeholder="Что вас беспокоит?"></textarea>
-					<input type="text" name="docs" class="input-text" placeholder="К кому вы хотели бы записаться?">					
-					<label class="input-label">
-						<input type="checkbox" class="input-check" name="check">
-						<span>Нажимая на кнопку “Записаться”, я даю свое согласие на обработку персональных данных</span>
-					</label>
-					<input type="submit" class="btn-round" value="Записаться на прием">
-					<!-- <input type="hidden" name="recaptcha_response" id="recaptchaResponse"> -->
-				</form>
+				<?php echo do_shortcode('[contact-form-7 id="7a6d9e1" submit_text="Записаться на прием"]'); ?>
 			</div>
 		</div>
 	</div>

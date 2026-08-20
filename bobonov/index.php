@@ -106,24 +106,17 @@
 			<div class="text-center lilac h4">прайс</div>
 			<div class="h1 text-center"><span class="lilac">Цены</span> на услуги</div>
 			<div class="b-prices">
-				<div class="text-center">
-					<p class="h3 lilac">Индивидуальная терапия</p>
-					<p>Продолжительность: 45 минут</p>
-					<p class="h3 lilac">от 5 000 ₽</p>
-					<a data-fancybox data-src="#popup" href="javascript:;" class="btn-lilac">Записаться на прием</a>
-				</div>
-				<div class="text-center">
-					<p class="h3 lilac">Групповая терапия</p>
-					<p>Продолжительность: 45 минут</p>
-					<p class="h3 lilac">от 5 000 ₽</p>
-					<a data-fancybox data-src="#popup" href="javascript:;" class="btn-lilac">Записаться на прием</a>
-				</div>
-				<div class="text-center">
-					<p class="h3 lilac">Семейная терапия</p>
-					<p>Продолжительность: 45 минут</p>
-					<p class="h3 lilac">от 5 000 ₽</p>
-					<a data-fancybox data-src="#popup" href="javascript:;" class="btn-lilac">Записаться на прием</a>
-				</div>
+				<?php $price_front_page = get_field('price_front_page');
+					if(!empty($price_front_page) && is_array($price_front_page)):
+						foreach($price_front_page as $item): ?>
+							<div class="text-center">
+								<p class="h3 lilac"><?php echo $item['price_front_title']; ?></p>
+								<p>Продолжительность: <?php echo $item['price_front_time']?></p>
+								<p class="h3 lilac"><?php echo $item['price_front_cena']?></p>
+								<a data-fancybox data-src="#popup" href="javascript:;" class="btn-lilac">Записаться на прием</a>
+							</div>
+					<?php endforeach;
+					endif; ?>
 			</div>
 		</div>
 	</div>

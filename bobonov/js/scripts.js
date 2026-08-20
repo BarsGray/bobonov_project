@@ -56,7 +56,8 @@ jQuery(document).ready(function($){
 		}
 	});
 
-	$(".menu-item-has-children").click(function () {
+	$(".menu-item-has-children>a").click(function (e) { e.preventDefault(); });
+	$(".menu-item-has-children").click(function (e) {
 		if ($(window).width() > 992) return;
 		var $this = $(this);
 		var $submenu = $this.children(".sub-menu");
@@ -67,11 +68,9 @@ jQuery(document).ready(function($){
 			$this.addClass("active");
 			$submenu.css({opacity: 0, height: 0 });
 			var height = $submenu[0].scrollHeight;
-			// $submenu.animate({ opacity: 1, height: height }, 300);
 			$submenu.animate({ opacity: 1, height: height }, 300, function () { $(this).css("height", height); });
 		}
 	});
-	// Сбрасываем мобильное состояние при переходе на desktop
 	var wasMobile = $(window).width() <= 992;
 	$(window).on("resize", function () {
 			var isMobile = $(window).width() <= 992;
@@ -111,24 +110,48 @@ jQuery(document).ready(function($){
 		// });
 	// });
 	
-	$('#feedback-form').submit(function(){
-		this_el=$(this);
-		var fd=new FormData(document.forms.feedback);
-		this_el.find('.message').remove();
-		$.ajax({
-			url:'/mail.php',
-			contentType:false,
-			processData:false,
-			data:fd,
-			type:'POST',
-			success:function(response){
-				if(response=='ok')
-					this_el.trigger('reset').append('<div class="message success"><p>Ваше сообщение успешно отправлено!</p></div>');
-				else
-					this_el.append('<div class="message error">'+response+'</div>');
+	// $('#feedback-form').submit(function(){
+	// 	this_el=$(this);
+	// 	var fd=new FormData(document.forms.feedback);
+	// 	this_el.find('.message').remove();
+	// 	$.ajax({
+	// 		url:'/mail.php',
+	// 		contentType:false,
+	// 		processData:false,
+	// 		data:fd,
+	// 		type:'POST',
+	// 		success:function(response){
+	// 			if(response=='ok')
+	// 				this_el.trigger('reset').append('<div class="message success"><p>Ваше сообщение успешно отправлено!</p></div>');
+	// 			else
+	// 				this_el.append('<div class="message error">'+response+'</div>');
+	// 		}
+	// 	});
+	// 	return false;
+	// });
+
+	const allForms = document.querySelectorAll('.wpcf7-form');
+
+	allForms.forEach(form => {
+		const phoneInput = form.querySelector('input[type="tel"]');
+		phoneInput.addEventListener('input', (e) => {
+			let input = e.target.value.replace(/\D/g, '');
+			let formatted = '';
+
+			if (['7', '8', '9'].includes(input[0])) {
+				if (input[0] === '9') input = '7' + input;
+				input = input.substring(1);
 			}
+
+			formatted = '+7 ';
+
+			if (input.length > 0) { formatted += '(' + input.substring(0, 3); }
+			if (input.length >= 4) { formatted += ') ' + input.substring(3, 6); }
+			if (input.length >= 7) { formatted += '-' + input.substring(6, 8); }
+			if (input.length >= 9) { formatted += '-' + input.substring(8, 10); }
+
+			e.target.value = formatted;
 		});
-		return false;
 	});
-		
+
 });
